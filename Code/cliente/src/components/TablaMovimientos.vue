@@ -144,7 +144,7 @@ export default {
       page: 1,
       itemsPerPage: 16,
       sortBy: "name",
-      keys: ["_id", "tiempo"],
+      keys: ["_id", "fecha","tiempo"],
       items: [],
     };
   },
