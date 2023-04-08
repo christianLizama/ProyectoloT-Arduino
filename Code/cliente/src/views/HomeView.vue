@@ -1,12 +1,14 @@
 <template>
-  <hello-world />
+  <div>
+    <tabla-movimientos></tabla-movimientos>
+  </div>
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
-  export default {
-    components: {
-      HelloWorld,
-    },
-  }
+import TablaMovimientos from "@/components/TablaMovimientos.vue";
+export default {
+  components: {
+    TablaMovimientos,
+  },
+};
 </script>
