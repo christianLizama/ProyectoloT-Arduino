@@ -133,6 +133,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   data() {
     return {
@@ -143,86 +144,12 @@ export default {
       page: 1,
       itemsPerPage: 16,
       sortBy: "name",
-      keys: [
-        "_id",
-        "tiempo",
-      ],
-      items: [
-        {
-          _id: "xd",
-          tiempo: "1232131",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },
-        {
-          _id: "xd",
-          tiempo: "1232131",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },
-        {
-          _id: "xd",
-          tiempo: "1232131",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },
-        {
-          _id: "xd",
-          tiempo: "1232131",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },
-        {
-          _id: "xd",
-          tiempo: "1232131",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },{
-          _id: "xd",
-          tiempo: "1232131",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },{
-          _id: "xd",
-          tiempo: "1232131",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },{
-          _id: "xd",
-          tiempo: "1232131",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },
-        {
-          _id: "xd1",
-          tiempo: "dsdsds2312",
-        },
-      ],
+      keys: ["_id", "tiempo"],
+      items: [],
     };
+  },
+  created() {
+    this.obtenerDatos();
   },
   computed: {
     numberOfPages() {
@@ -241,6 +168,13 @@ export default {
     },
     updateItemsPerPage(number) {
       this.itemsPerPage = number;
+    },
+    async obtenerDatos() {
+      axios.get("/alerta/getAlertas").then((resultado) => {
+        this.items = resultado.data;
+      }).catch((error) => {
+        console.log(error.response);
+      })
     },
   },
 };

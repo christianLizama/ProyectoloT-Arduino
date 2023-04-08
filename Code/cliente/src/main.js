@@ -7,8 +7,8 @@ import axios from "axios";
 
 Vue.config.productionTip = false
 
-  axios.defaults.baseURL = process.env.URL_SERVER;
-
+axios.defaults.baseURL = process.env.VUE_APP_SERVER_URL;
+console.log(process.env.VUE_APP_SERVER_URL)
 new Vue({
   router,
   store,
