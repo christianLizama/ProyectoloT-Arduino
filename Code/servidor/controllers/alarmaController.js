@@ -42,7 +42,8 @@ const queryDia = async (req, res, next) => {
 //Metodo para obtener un archivo mediante su id
 const queryHora = async (req, res, next) => {
   try {
-    const { dia } = req.body;
+    const { dia } = req.query;
+    console.log(dia)
     var arreglo = [];
 
     // Llenar el arreglo con números en formato de 00 a 23
@@ -55,19 +56,12 @@ const queryHora = async (req, res, next) => {
     }
 
     // Imprimir el arreglo
-    console.log(arreglo);
+    // console.log(arreglo);
     
     
-    const reg = await alarma.find({ fecha: dia, hora: "20" }).count();
     
 
-    if (!reg) {
-      res.status(404).send({
-        message: "No existe ningún registro",
-      });
-    } else {
-      res.status(200).json(reg);
-    }
+    res.status(200).send(arreglo);
   } catch (e) {
     res.status(500).send({
       message: "Ocurrio un error",
