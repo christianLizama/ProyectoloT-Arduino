@@ -8,7 +8,7 @@
           <v-icon x-large>mdi-motion-sensor</v-icon>
         </v-app-bar-nav-icon>
       </div>
-      <v-app-bar-title> Sensor Secure </v-app-bar-title>
+      <v-app-bar-title class="text-no-wrap"> Sensor Secure </v-app-bar-title>
     </v-app-bar>
     <v-navigation-drawer v-model="drawer" absolute bottom temporary>
       <v-list nav dense>
