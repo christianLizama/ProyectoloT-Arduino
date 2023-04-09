@@ -8,6 +8,8 @@ router.get('/', function(req, res, next) {
 });
 
 
-router.get('/getAlertas', alerta.query)
+router.get('/getAlertas', alerta.query);
+router.get('/queryDia', alerta.queryDia);
+router.get('/queryHora', alerta.queryHora);
 
 module.exports = router;
