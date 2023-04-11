@@ -49,7 +49,7 @@
         <v-row>
           <v-col
             v-for="item in props.items"
-            :key="item.name"
+            :key="item.fecha"
             cols="12"
             sm="6"
             md="4"
@@ -57,7 +57,7 @@
           >
             <v-card>
               <v-card-title class="subheading font-weight-bold">
-                {{ item.name }}
+                {{ item.fecha }}
               </v-card-title>
 
               <v-divider></v-divider>
@@ -98,8 +98,8 @@ export default {
       sortDesc: false,
       page: 1,
       itemsPerPage: 16,
-      sortBy: "name",
-      keys: ["_id", "fecha","tiempo"],
+      sortBy: "fecha",
+      keys: ["_id","tiempo"],
       items: [],
     };
   },
