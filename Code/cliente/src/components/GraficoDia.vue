@@ -24,7 +24,11 @@
             </template>
             <v-date-picker
               v-model="date"
-              :max="new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString()"
+              :max="
+                new Date(
+                  Date.now() - new Date().getTimezoneOffset() * 60000
+                ).toISOString()
+              "
               locale="cl"
               no-title
               @input="menu2 = false"
@@ -34,7 +38,7 @@
       </v-row>
     </v-container>
 
-    <Bar v-if="loaded" :data="chartData" />
+    <Bar v-if="loaded" :data="chartData" :options="chartOptions" />
   </div>
 </template>
 
@@ -68,7 +72,11 @@ export default {
       date: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
         .toISOString()
         .substr(0, 10),
-      dateFormatted: this.formatDate((new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)),
+      dateFormatted: this.formatDate(
+        new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+          .toISOString()
+          .substr(0, 10)
+      ),
       menu1: false,
       menu2: false,
       loaded: false,
@@ -106,6 +114,23 @@ export default {
             data: [],
           },
         ],
+      },
+      width: "100px",
+      chartOptions: {
+        scales: {
+          y: {
+            title: {
+              display: true,
+              text: "Movimientos",
+            },
+          },
+          x: {
+            title: {
+              display: true,
+              text: "Horas",
+            },
+          },
+        },
       },
     };
   },
