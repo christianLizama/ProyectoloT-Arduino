@@ -7,7 +7,9 @@ router.get('/', function(req, res, next) {
   res.send('respondiendo desde alerta');
 });
 
-
-router.get('/getAlertas', alerta.query)
+//Rutas para alarmas
+router.get('/getAlertas', alerta.query);
+router.get('/queryDia', alerta.queryDia);
+router.get('/queryHora', alerta.queryHora);
 
 module.exports = router;

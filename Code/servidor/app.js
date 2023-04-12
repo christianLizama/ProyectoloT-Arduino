@@ -38,8 +38,13 @@ parser.on("data", (data) => {
   const pirValue = parseInt(data); // Convertir el valor recibido a número entero
   console.log("Valor del sensor PIR:", pirValue);
   if(pirValue==1){
-    const fechaChile = moment().utcOffset('-04:00').format("DD/MM/YYYY-HH:mm");
-    const nuevaAlerta = alarma({tiempo: fechaChile})
+    const fechaChile = moment().utcOffset('-04:00');
+    const fecha = fechaChile.format("DD/MM/YYYY");
+    const tiempo = fechaChile.format("HH:mm:ss");
+    const hora = fechaChile.format("HH");
+    const minuto = fechaChile.format("mm");
+    const segundo = fechaChile.format("ss");
+    const nuevaAlerta = alarma({fecha: fecha,tiempo: tiempo,hora:hora,minuto:minuto,segundo:segundo})
     nuevaAlerta.save().then(()=>{
         console.log("Nueva alerta guardada en la bd")    
     }).catch((err) => {
