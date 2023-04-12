@@ -1,6 +1,6 @@
 import alarma from "../models/alarma";
 
-//Metodo para obtener un archivo mediante su id
+//Metodo para obtener todas las alarmas
 const query = async (req, res, next) => {
   try {
     const reg = await alarma.find();
@@ -19,7 +19,7 @@ const query = async (req, res, next) => {
   }
 };
 
-//Metodo para obtener un archivo mediante su id
+//Metodo para contar todas las alarmas de un dia
 const queryDia = async (req, res, next) => {
   try {
     const { dia } = req.body;
@@ -39,7 +39,7 @@ const queryDia = async (req, res, next) => {
   }
 };
 
-//Metodo para obtener un archivo mediante su id
+//Metodo para contar las alarmas de un dia en las 24 hrs
 const queryHora = async (req, res, next) => {
   try {
     const { dia } = req.query;
@@ -54,12 +54,6 @@ const queryHora = async (req, res, next) => {
       // Agregar el número al arreglo
       arreglo.push(conteo);
     }
-
-    // Imprimir el arreglo
-    // console.log(arreglo);
-    
-    
-    
 
     res.status(200).send(arreglo);
   } catch (e) {
